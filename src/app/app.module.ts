@@ -11,6 +11,7 @@ import { LocationComponent } from './components/location/location.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RegistryComponent } from './components/registry/registry.component';
 import { SlideShowComponent } from './components/slideshow/slideshow.component';
+import { RsvpComponent } from './components/rsvp/rsvp.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     FooterSectionComponent,
     LocationComponent,
     GalleryComponent,
-    RegistryComponent
+    RegistryComponent,
+    RsvpComponent
   ],
   providers: [],
   bootstrap: [
