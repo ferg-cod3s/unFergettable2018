@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,12 +20,13 @@ const appRoutes: Routes = [
     { path: 'gallery', component: GalleryComponent, },
     { path: 'registry', component: RegistryComponent, },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '**', redirectTo: '/home'}
   ];
 
 @NgModule({
   imports: [
   BrowserModule,
+  FormsModule,
   RouterModule.forRoot(
     appRoutes,
     // { enableTracing: true }, // <-- Debugging purposes only
