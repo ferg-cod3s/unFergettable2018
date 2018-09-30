@@ -1,6 +1,6 @@
 var url = 'https://script.google.com/macros/s/AKfycbzoPQoLokSVqlN1tQ4k5o5jN3GdY0VvOW2rv5g2Grm1okgZ52k/exec'
 
-$('#rsvpForm').submit(function(e) {
+$('#submitButton').click(function(e) {
   console.log("you clicked submit!")
   // Abort any pending requests
   if (request){
