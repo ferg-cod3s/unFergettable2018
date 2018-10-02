@@ -1,0 +1,12 @@
+.ajax-radio input[type=radio],
+.ajax-checkbox input[type=checkbox] {
+	display: none;
+}
+
+.ajax-radio input[type=radio]:checked + label, 
+.ajax-checkbox input[type=checkbox]:checked + label { 
+	background-color:#4e6b86; 
+	border-color:#4e6b86; 
+	color:#FFF;
+}
+  

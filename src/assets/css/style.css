@@ -1769,8 +1769,8 @@ form .btn-primary.active,
 /*-----------------------------------------------*/
 /* 11.6 Checkbox and Radio (Custom)				 */
 /*-----------------------------------------------*/
-.ajax-checkbox .btn input[type=checkbox],
-.ajax-radio .btn input[type=radio]{
+.ajax-checkbox input[type=checkbox],
+.ajax-radio input[type=radio]{
 	display:none;
 }
 

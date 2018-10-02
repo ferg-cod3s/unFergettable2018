@@ -2,8 +2,8 @@
 <section id="content">
 
   <!-- CONTAINER -->
-  <div class="container" [hidden]="submitted">
-    <form id="rsvpForm" (ngSubmit)="onSubmit()" #rsvpForm="ngForm">
+  <div class="container">
+    <form id="rsvpform" (ngSubmit)="onSubmit()" #rsvpForm="ngForm">
       <!--TEXT SECTION-->
         <div class="row">
           <div id="message" class="col-md-offset-1 col-md-10 message">
@@ -19,58 +19,44 @@
         <div class="rsvp-wrapper">
         <div class="form-group">
           <label for="inputname">*NAME</label>
-          <input type="text" class="form-control ajax-input" id="inputname" placeholder="" data-required="Name Required" data-output-label="Output Name" name="Name">
+          <input type="text" class="form-control ajax-input" id="inputname" placeholder="" data-required="Name Required" data-output-label="Output Name" name="Name" [(ngModel)]="rsvpModel.name" #name="ngModel" >
         </div>
         <div class="form-group">
-    						<label for="inputemail">*EMAIL</label>
-    						<input type="email" class="form-control ajax-input" id="inputemail" placeholder="" data-required="Email Required" data-output-label="Output Email" name="Email">
- 						</div>
+          <label for="inputemail">*EMAIL</label>
+          <input type="email" class="form-control ajax-input" id="inputemail" placeholder="" data-required="Email Required" data-output-label="Output Email" name="Email" [(ngModel)]="rsvpModel.email" #email="ngModel">
+        </div>
 
-                    	<div class="form-group">
-                           	<label>*ARE YOU ATTENDING?</label>
-                           	<div id="events-radio" class="ajax-input ajax-radio" data-required="Are you Attending?" data-output-label="Attending" name="Attending">
-                            	<div data-toggle="buttons">
-  									<label class="btn btn-primary no-icon">
-    									<input type="radio" name="attending" id="accept" value="Accept with Pleasure"> Accept with Pleasure
-  									</label>
-                               		<label class="btn btn-primary no-icon">
-    									<input type="radio" name="attending" id="decline" value="Decline with Regrets"> Decline with Regrets
-  									</label>
-                                </div>
-							</div>
-                      	</div>
-
-                        <div class="form-group">
-                           	<label>*NUMBER OF GUEST</label>
-                           	<div id="guest-radio" class="ajax-input ajax-radio" data-required="How many Guest?" data-output-label="Number of Guest" name="Number-In-Party">
-                            	<div data-toggle="buttons">
-  									<label class="btn btn-primary no-icon">
-    									<input type="radio" name="guest" id="1" value="1" name="Number-In-Party"> 1
-  									</label>
-                               		<label class="btn btn-primary no-icon">
-    									<input type="radio" name="guest" id="2" value="2" name="Number-In-Party">2
-  									</label>
-                                    <label class="btn btn-primary no-icon">
-    									<input type="radio" name="guest" id="3" value="3" name="Number-In-Party">3
-  									</label>
-                                    <label class="btn btn-primary no-icon">
-    									<input type="radio" name="guest" id="4" value="4" name="Number-In-Party">4
-  									</label>
-                  <label class="btn btn-primary no-icon">
-                    <input type="radio" name="guest" id="5" value="5" name="Number-In-Party">5
-                  </label>
-                </div>
-							</div>
+        <div class="form-group">
+          <label>*ARE YOU ATTENDING?</label> 
+          <div id="events-radio" class="ajax-input ajax-radio" data-required="Are you Attending?" data-output-label="Attending" name="Attending">
+            <input type="radio" name="Attending" id="accept" value="Yes" [(ngModel)]="rsvpModel.attending" #attending="ngModel" checked="checked">
+            <label class="btn btn-primary no-icon" for="accept"> Accept with Pleasure </label>
+            <input type="radio" name="Attending" id="decline" value="No" [(ngModel)]="rsvpModel.attending" #attending="ngModel">  
+            <label class="btn btn-primary no-icon" for="decline"> Decline with Regrets </label>
             </div>
-            <div class="form-group">
-              <input type="submit" id="submitButton"  name="submitButton" class="button medium reverse">
+       	</div>
+
+        <div class="form-group">
+         	<label>*NUMBER OF GUEST</label>
+           	<div id="guest-radio" class="ajax-input ajax-radio" data-required="How many Guest?" data-output-label="Number of Guest" name="Number-In-Party">
+              <input type="radio" name="guest" id="1" value="1" name="Number-In-Party" [(ngModel)]="rsvpModel.numInParty" #numInParty="ngModel"> 
+              <label class="btn btn-primary no-icon" for="1">1</label>
+              <input type="radio" name="guest" id="2" value="2" name="Number-In-Party" [(ngModel)]="rsvpModel.numInParty" #numInParty="ngModel">
+              <label class="btn btn-primary no-icon" for="2">2</label>
+              <input type="radio" name="guest" id="3" value="3" name="Number-In-Party" [(ngModel)]="rsvpModel.numInParty" #numInParty="ngModel">
+              <label class="btn btn-primary no-icon" for="3">3</label>
+              <input type="radio" name="guest" id="4" value="4" name="Number-In-Party" [(ngModel)]="rsvpModel.numInParty" #numInParty="ngModel">
+              <label class="btn btn-primary no-icon" for="4">4</label>
+              <input type="radio" name="guest" id="5" value="5" name="Number-In-Party" [(ngModel)]="rsvpModel.numInParty" #numInParty="ngModel">
+              <label class="btn btn-primary no-icon" for="5">5</label>
+						</div>
+          </div>
+          <div class="form-group">
+              <button type="submit" id="submitButton"  name="submitButton" class="button medium reverse" value="SUBMIT">SUBMIT</button>
  						</div>
           </div>
         </div>
       </div><!--END of TEXT SECTION-->
     </form>
   </div><!-- END of CONTAINER -->
-  <div class="container">
-    Thank you for RSVPing to Morgan and John's wedding!
-  </div>
 </section> <!--END of CONTENT SECTION-->

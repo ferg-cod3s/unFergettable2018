@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { RSVP } from './rsvp';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable()
 export class RsvpService {
@@ -8,57 +11,24 @@ export class RsvpService {
     constructor(private http: HttpClient) { }
 
   /*Submit Data to google sheet*/
-  post(event) {
+  submitToForms(rsvp: RSVP) {
 
-    console.log(event)
+    return this.http.get(this.url, {params: {Name: rsvp.name, Email:rsvp.email, RSVP: rsvp.attending, NumberInParty: rsvp.numInParty}}).pipe(catchError(this.handleError));    
 
-
-    /*  //local variables!
-    var $form = $(this);
-    
-      //select and cache all input fields!
-    var $inputs = $form.find("input, select, button, textarea");
-    
-      //serialize the data
-    var serializedData = $form.serialize();
-    
-      //disable inputs while submitting... this makes sense
-    $inputs.prop("disabled", true);
-    
-      //fire off request to /form.php... this is where i get lost
-    request = $ajax({
-        url: url,
-        type: "POST",
-        data: serializedData
-    });
-    
-      //Callback handler, called on success
-      request.done(function(response, textStatus, jqXHR){
-        //logging messages
-        console.log("Hooray, it worked!");
-        console.log(response);
-        console.log(textStatus);
-        console.log(jqXHR);
-      });
-    
-      //Callback handler, called on fail
-      request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-      });
-    
-    // Callback handler that will be called regardless if the request failed or succeeded
-      request.always(function () {
-        // Reenable the inputs
-        $inputs.prop("disabled", false);
-      });
-    
-      // Prevent default posting of form
-      event.preventDefault();
-    })*/
-    
   }
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // return an observable with a user-facing error message
+    return throwError(
+      'Something bad happened; please try again later.');
+  };
 }

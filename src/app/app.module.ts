@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
     { path: 'gallery', component: GalleryComponent, },
     { path: 'registry', component: RegistryComponent, },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home'}
+    { path: '**', redirectTo: '/home', pathMatch: 'full' }
   ];
 
 @NgModule({

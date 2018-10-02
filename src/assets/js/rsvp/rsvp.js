@@ -1,11 +1,11 @@
 var url = 'https://script.google.com/macros/s/AKfycbzoPQoLokSVqlN1tQ4k5o5jN3GdY0VvOW2rv5g2Grm1okgZ52k/exec'
 
-$('#submitButton').click(function(e) {
+function submitted(e) {
   console.log("you clicked submit!")
   // Abort any pending requests
-  if (request){
+  /*if (request){
     request.abort();
-  }
+  }*/
 
   //local variables!
   var $form = $(this);
@@ -16,6 +16,7 @@ $('#submitButton').click(function(e) {
   //serialize the data
   var serializedData = $form.serialize();
 
+  console.log(serializedData);
   //disable inputs while submitting... this makes sense
   $inputs.prop("disabled", true);
 
@@ -52,4 +53,4 @@ $('#submitButton').click(function(e) {
 
   // Prevent default posting of form
   event.preventDefault();
-})
+}
