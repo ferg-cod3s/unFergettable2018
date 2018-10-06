@@ -14,18 +14,14 @@ export class RsvpComponent{
 
   constructor (private rsvpService: RsvpService) { }
 
-  rsvpModel = new RSVP ("name", "email", "?", "0");
+  rsvpModel = new RSVP ("", "", "", "");
 
   submitted = false;
 
   onSubmit() {
     this.submitted=true; 
     
-    console.log(this.rsvpModel);
-    
-    this.rsvpService.submitToForms(this.rsvpModel).subscribe(result => {
-      console.log (result);
-    });
+    this.rsvpService.submitToForms(this.rsvpModel).subscribe(result => { });
   }
 
 }

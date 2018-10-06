@@ -5,25 +5,28 @@
   <div class="container">
     <form id="rsvpform" (ngSubmit)="onSubmit()" #rsvpForm="ngForm">
       <!--TEXT SECTION-->
-        <div class="row">
-          <div id="message" class="col-md-offset-1 col-md-10 message">
+        <div class="row" [hidden]="!submitted">
+          <div id="message"  class="col-md-offset-1 col-md-10 message">
             <!-- Show Message -->
+            <h3>
+              Thank you for RSVPing to our wedding!
+            </h3>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-offset-1 col-md-5">
+        <div class="row" [hidden]="submitted">
+          <div class="col-md-offset-1 col-md-5 message">
               <h3 style="margin-top:3px;">PLEASE RESPOND BEFORE 12.01.18</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex elit, gravida quis enim quis, scelerisque imperdiet elit. Suspendisse ut erat sed nulla bibendum ultricies ac eget mauris. Nunc rutrum sapien eget felis malesuada gravida. Sed cursus pharetra metus a eleifend. </p>
-            </div>
+              <p>Please let us know if you will be joining us for this special day. The sooner the better! </p>
+          </div>
           <div class="col-md-5">
-        <div class="rsvp-wrapper">
-        <div class="form-group">
-          <label for="inputname">*NAME</label>
-          <input type="text" class="form-control ajax-input" id="inputname" placeholder="" data-required="Name Required" data-output-label="Output Name" name="Name" [(ngModel)]="rsvpModel.name" #name="ngModel" >
-        </div>
+            <div class="rsvp-wrapper">
+              <div class="form-group">
+                <label for="inputname">*NAME</label>
+                <input type="text" class="form-control ajax-input" id="inputname" placeholder="Full Name" data-required="Name Required" data-output-label="Output Name" name="Name" [(ngModel)]="rsvpModel.name" #name="ngModel" >
+              </div>
         <div class="form-group">
           <label for="inputemail">*EMAIL</label>
-          <input type="email" class="form-control ajax-input" id="inputemail" placeholder="" data-required="Email Required" data-output-label="Output Email" name="Email" [(ngModel)]="rsvpModel.email" #email="ngModel">
+          <input type="email" class="form-control ajax-input" id="inputemail" placeholder="email@email.com" data-required="Email Required" data-output-label="Output Email" name="Email" [(ngModel)]="rsvpModel.email" #email="ngModel">
         </div>
 
         <div class="form-group">
@@ -52,7 +55,7 @@
 						</div>
           </div>
           <div class="form-group">
-              <button type="submit" id="submitButton"  name="submitButton" class="button medium reverse" value="SUBMIT">SUBMIT</button>
+              <button type="submit" id="submitButton"  name="submitButton" class="button btn-primary medium reverse" value="SUBMIT">RSVP</button>
  						</div>
           </div>
         </div>
