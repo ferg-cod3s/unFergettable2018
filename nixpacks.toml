@@ -5,10 +5,16 @@ nixPkgs = ['nodejs']
 cmds = ['npm install']
 
 [phases.build]
-cmds = ['export NODE_OPTIONS=--openssl-legacy-provider && ng build --prod']
+cmds = [
+  'export NODE_OPTIONS=--openssl-legacy-provider',
+  'sed -i "s/placeholder-key/${GOOGLE_MAPS_API_KEY}/g" src/environments/environment.ts',
+  'sed -i "s/placeholder-key/${GOOGLE_MAPS_API_KEY}/g" src/environments/environment.prod.ts',
+  'ng build --prod',
+]
 
 [start]
 cmd = "npm start"
 
 [variables]
 NODE_OPTIONS = "--openssl-legacy-provider"
+GOOGLE_MAPS_API_KEY = "${GOOGLE_MAPS_API_KEY}"
