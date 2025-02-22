@@ -1,11 +1,14 @@
 [phases.setup]
-nixPkgs = ['nodejs-14_x', 'npm']
+nixPkgs = ['nodejs-16_x', 'npm']
 
 [phases.install]
 cmds = ['npm install']
 
 [phases.build]
-cmds = ['npm run build --prod']
+cmds = ['export NODE_OPTIONS=--openssl-legacy-provider && ng build --prod']
 
 [start]
 cmd = "npm start"
+
+[variables]
+NODE_OPTIONS = "--openssl-legacy-provider"
