@@ -20,8 +20,8 @@ const appRoutes: Routes = [
     { path: 'location', component: LocationComponent, },
     { path: 'gallery', component: GalleryComponent, },
     { path: 'registry', component: RegistryComponent, },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '**', redirectTo: 'home', pathMatch: 'full' }
   ];
 
 @NgModule({
